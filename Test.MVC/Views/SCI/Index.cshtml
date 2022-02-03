@@ -1,0 +1,38 @@
+﻿@model Test.MVC.Models.ResquestForm
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm()) {
+<h2>Consulta de Información Información</h2>
+<div class="panel panel-default">
+    <div class="panel-heading">Selecciona la información correspondiente para consultar tu Vehículo asignado</div>
+    <div class="panel-body">
+        <div class="form-group">
+            <label for="Imei">
+                IMEI: <span class="requerido">*</span>
+            </label>
+            @Html.DropDownListFor( model => model.IMEI,  new List<SelectListItem>
+            { new SelectListItem() { Text = "354330030646882", Value = "354330030646882"}
+
+            }, new { @class = "form-select form-control" })
+        </div>
+        <div class="form-group">
+            <label for="Compania">
+                Compañia: <span class="requerido">*</span>
+            </label>
+            @Html.DropDownListFor(model => model.CompanyID, new List<SelectListItem>
+             { new SelectListItem() { Text = "10", Value = "10"}
+             }, new { @class = "form-select form-control" })
+        </div>
+            <div class="form-group">
+                <label for="">
+                    Acción: <span class="requerido">*</span>
+                </label>
+                <input type="submit" class="btn btn-secondary" id="SubmitSCI" value="Consultar" alt="Submit" />
+            </div>
+        </div>
+    </div>
+}
+
